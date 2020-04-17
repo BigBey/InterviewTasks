@@ -10,12 +10,32 @@ public class TopDownMergeSort {
     }
 
     private static void merge(int[] array, int start, int mid, int end) {
+        int[] temp = new int[end - start + 1];
+        int i = start;
+        int j = mid + 1;
+        int k = 0;
+        while(i <= mid && j <= end){
+            if(array[i] < array[j]){
+                temp[k] = array[i];
+                k++; i++;
+            }else{
+                temp[k] = array[j];
+                k++;j++;
+            }
+        }
 
-    }
+        while(i <= mid){
+            temp[k] = array[i];
+            k++; i++;
+        }
 
-    private static void swap(int a, int b){
-        int temp = a;
-        a = b;
-        b = a;
+        while(j <= end){
+            temp[k] = array[j];
+            k++; j++;
+        }
+
+        for(int l = start; l <= end; l++){
+            array[l] = temp[l - start];
+        }
     }
 }
