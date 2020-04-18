@@ -4,4 +4,9 @@ public class Utils {
             System.out.print(array[i] + ",");
         }
     }
+    public static void swap(int a, int b){
+        int temp = a;
+        a = b;
+        b = temp;
+    }
 }
